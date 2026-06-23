@@ -1,38 +1,51 @@
-# NotAFish 🐟🚫
+# homebrew-notafish
 
-Heuristic phishing URL checker. CLI tool, zero dependencies, MIT licensed.
+🐟 Official [Homebrew](https://brew.sh) tap for [**NotAFish**](https://github.com/realnishil/notafish) — a heuristic phishing URL checker that lives in your terminal.
 
-by [realnishil](https://github.com/realnishil)
+## Installation
 
-## checks
-- HTTP vs HTTPS
-- raw IP host
-- punycode / homograph
-- known shorteners
-- suspicious TLDs
-- subdomain count
-- `@` in URL
-- brand typosquat (levenshtein)
-- suspicious keywords
-- URL length
-- non-standard ports
-- DNS resolution
-
-## usage
 ```bash
-python3 notafish.py "http://paypa1-secure-login.tk/verify@account"
-python3 notafish.py -f urls.txt
-python3 notafish.py <url> --no-resolve --no-color
+brew tap realnishil/notafish
+brew install notafish
 ```
 
-## install
-no deps. python3 stdlib only.
+Or in one line:
+
 ```bash
-git clone https://github.com/realnishil/notafish.git
-cd notafish
-chmod 755 notafish.py
-./notafish.py <url>
+brew install realnishil/notafish/notafish
 ```
 
-## license
-MIT
+## Usage
+
+```bash
+notafish https://paypa1-secure-login.tk/account/verify
+```
+
+See the [NotAFish README](https://github.com/realnishil/notafish) for full usage, scoring details, and CLI options.
+
+## Updating
+
+```bash
+brew update
+brew upgrade notafish
+```
+
+## Uninstalling
+
+```bash
+brew uninstall notafish
+brew untap realnishil/notafish
+```
+
+## Formula
+
+The formula lives in [`Formula/notafish.rb`](Formula/notafish.rb) in this repo. It tracks the latest tagged release of [realnishil/notafish](https://github.com/realnishil/notafish).
+
+## Issues
+
+Problems with the **formula/tap** (install failures, version bumps, etc.) → open an issue here.
+Problems with **NotAFish itself** (false positives, missing heuristics, bugs) → open an issue on the [main repo](https://github.com/realnishil/notafish/issues).
+
+## License
+
+MIT — same as NotAFish.
